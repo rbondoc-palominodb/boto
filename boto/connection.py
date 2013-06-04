@@ -1042,6 +1042,7 @@ class AWSQueryConnection(AWSAuthConnection):
             rs = ResultSet(markers)
             h = boto.handler.XmlHandler(rs, parent)
             xml.sax.parseString(body, h)
+            xml.sax.parseString(body, h)
             return rs
         else:
             boto.log.error('%s %s' % (response.status, response.reason))
@@ -1062,6 +1063,7 @@ class AWSQueryConnection(AWSAuthConnection):
             obj = cls(parent)
             h = boto.handler.XmlHandler(obj, parent)
             xml.sax.parseString(body, h)
+            xml.sax.parseString(body, h)
             return obj
         else:
             boto.log.error('%s %s' % (response.status, response.reason))
@@ -1080,6 +1082,7 @@ class AWSQueryConnection(AWSAuthConnection):
         elif response.status == 200:
             rs = ResultSet()
             h = boto.handler.XmlHandler(rs, parent)
+            xml.sax.parseString(body, h)
             xml.sax.parseString(body, h)
             return rs.status
         else:
